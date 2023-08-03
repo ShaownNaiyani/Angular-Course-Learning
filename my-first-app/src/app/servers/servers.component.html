@@ -1,4 +1,28 @@
 <app-server></app-server>
 <app-server></app-server>
-<app-warning-alert></app-warning-alert>
-<app-success-alert></app-success-alert>
+<!-- <app-warning-alert></app-warning-alert>
+<app-success-alert></app-success-alert> -->
+
+<!-- <label>Server Name</label>
+<input
+    type="text"
+    class = "form-control"
+    (input) = "onUpdateServerName($event)"
+> -->
+
+<input
+    type="text"
+    class = "form-control"
+    [(ngModel)]= "userName"
+    (input) = "resetButtonClickable($event)"
+> 
+
+<p>{{userName}}</p>
+
+<button
+    class="btn btn-primary"
+    [disabled] = "!resetButton"
+    (click) = "userName = '' "
+    > Reset
+</button>
+<p>{{serverCreationStatus}}</p>
