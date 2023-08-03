@@ -1,5 +1,5 @@
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor = "let server of servers"></app-server>
+
 <!-- <app-warning-alert></app-warning-alert>
 <app-success-alert></app-success-alert> -->
 
@@ -13,16 +13,23 @@
 <input
     type="text"
     class = "form-control"
-    [(ngModel)]= "userName"
-    (input) = "resetButtonClickable($event)"
+    [(ngModel)]= "serverName"
 > 
 
-<p>{{userName}}</p>
+<p>{{serverName}}</p>
 
 <button
     class="btn btn-primary"
-    [disabled] = "!resetButton"
-    (click) = "userName = '' "
-    > Reset
+    [disabled] = "!addNewServer"
+    (click) = "createServer()"
+    > Add Server
 </button>
+
+<p *ngIf = "serverCreated; else noServer">Server was Created!server name is {{serverName}}</p>
+
+<ng-template #noServer>
+
+    <p>Server was not created</p>
+
+</ng-template>
 <p>{{serverCreationStatus}}</p>

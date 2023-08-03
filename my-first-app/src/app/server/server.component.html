@@ -1,2 +1,17 @@
-<p>Hello Naiyani</p>
+<p [ngStyle]="{backgroundColor: getColor()}">student in {{serverStatus}}</p>
+
+<button class="btn btn-primary"
+        (click) = "showDetails()"
+>
+    Display Details
+</button>
+<p *ngIf = "showPara">I am shaown </p>
+<div>
+    <p *ngFor = "let log of logs"
+        [ngStyle]="{backgroundColor:log>=5 ? 'blue' : 'white'}"
+        [ngClass]="{'white-text': log>=5}"
+    >{{log}}</p>
+    
+</div>
+
 

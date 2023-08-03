@@ -13,13 +13,16 @@ export class ServersComponent implements OnInit{
   serverName = '';
   userName = '';
   resetButton= false;
+  serverCreated = false;
+
+  servers = ['server1','server2']
   
 
   constructor(){
 
-    // setTimeout(() => {
-    //   this.addNewServer = true;
-    // }, 2000);
+    setTimeout(() => {
+      this.addNewServer = true;
+    }, 2000);
   
   }
  
@@ -27,25 +30,27 @@ export class ServersComponent implements OnInit{
       
   }
 
-  // createServer(){
+  createServer(){
 
-  //   this.serverCreationStatus= 'Server Created Successfully';
+    this.serverCreationStatus= 'Server Created Successfully'+ this.serverName;
+    this.servers.push(this.serverName);
+    this.serverCreated= true;
 
-  // }
+  }
   // onUpdateServerName(event:any){
 
   //   this.serverName = (<HTMLInputElement>event.target).value;
 
   // }
 
-  resetButtonClickable(event:any){
+  // resetButtonClickable(event:any){
 
-    this.userName = (<HTMLInputElement>event.target).value;
+  //   this.userName = (<HTMLInputElement>event.target).value;
 
-    if(this.userName.length !== 0){
-      this.resetButton = true;
-    }
-  }
+  //   if(this.userName.length !== 0){
+  //     this.resetButton = true;
+  //   }
+  // }
 
 
 }
